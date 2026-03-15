@@ -1,20 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace BuildingControlSystem.Devices
 {
-    /*
-    Zařízení typu CardReader bude mít vlastnost AccessCardNumber typu string. Při pokusu
-    o zápis její hodnoty nejprve proběhne kontrola, zdali je délka řetězce sudá, ne větší než
-    16, a zda obsahuje pouze hexadecimální číslice. Byl-li předán nevyhovující řetězec, dojde
-    k chybě, jinak se předá transformační funkci ReverseBytesAndPad a její výsledek se uloží
-    jako hodnota vlastnosti AccessCardNumber. ReverseBytesAndPad je funkce jejíž jediný
-    parametr i návratová hodnota jsou typu string, která převrátí pořadí bytů (tedy dvojic
-    znaků, pořadí znaků ve dvojicích zůstane zachováno) v řetězci, a pokud je kratší než 16
-    znaků, doplní ho zleva samými nulami do délky 16. Př.: "A01234DE7FFF" ->
-    "0000FF7FDE3412A0"
-    */
     public class CardReader : Device
     {
         public override DeviceType Type => DeviceType.CardReader;
@@ -36,7 +23,10 @@ namespace BuildingControlSystem.Devices
                 }
             }
         }
-        public CardReader(string name) : base(name) { }
+        public CardReader(string name, string cardNum) : base(name)
+        {
+            AccessCardNumber = cardNum;
+        }
 
         private static bool IsValidAccessCardNumber(string value)
         {
@@ -62,9 +52,10 @@ namespace BuildingControlSystem.Devices
             result = result.PadLeft(16, '0');
             return result;
         }
-         public override string GetCurrentState()
+
+        public override string GetCurrentState()
         {
-            return $"AccessCardNumber: {AccessCardNumber}";
+            return $"AccessCardNumber= {AccessCardNumber}";
         }
     }
 }

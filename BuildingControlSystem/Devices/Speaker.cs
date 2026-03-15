@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BuildingControlSystem.Devices
+﻿namespace BuildingControlSystem.Devices
 {
     public class Speaker : Device
     {
@@ -40,7 +36,7 @@ namespace BuildingControlSystem.Devices
         public Speaker(string name) : base(name)
         {
             _sound = SoundType.None;
-            _volume = 0.5f; // výchozí hlasitost
+            _volume = 0.5f; // default volume
         }
 
         public override string GetCurrentState()

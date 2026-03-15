@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BuildingControlSystem.Devices
+﻿namespace BuildingControlSystem.Devices
 {
     public class Door : Device
     {
@@ -57,7 +53,7 @@ namespace BuildingControlSystem.Devices
 
         public override string GetCurrentState()
         {
-            return State.ToString();
+            return $"Locked= {Locked}, Open= {Open}, OpenForTooLong= {OpenForTooLong}, OpenedForcibly= {OpenedForcibly}";
         }
     }
 }

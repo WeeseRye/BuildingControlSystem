@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BuildingControlSystem.Devices
+﻿namespace BuildingControlSystem.Devices
 {
-
     public class LedPanel : Device
     {
         public override DeviceType Type => DeviceType.LedPanel;
@@ -27,7 +22,7 @@ namespace BuildingControlSystem.Devices
         }
         public override string GetCurrentState()
         {
-            return $"Display: {_message}";
+            return $"Message= {Message}";
         }
     }
 }

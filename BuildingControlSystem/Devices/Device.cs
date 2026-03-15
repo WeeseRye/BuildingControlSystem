@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BuildingControlSystem.Devices
+﻿namespace BuildingControlSystem.Devices
 {
     public enum DeviceType
     {
@@ -22,7 +18,7 @@ namespace BuildingControlSystem.Devices
 
         protected void OnDeviceChanged()
         {
-            Console.WriteLine(GetCurrentState());
+            Console.WriteLine($"\nUpdated device -> [{Id}] {Type} - {Name}: {GetCurrentState()}");
         }
 
         protected Device(string name)
